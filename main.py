@@ -51,10 +51,10 @@ def gradientDescent(x):
       precision = np.linalg.norm(precisionF)
       # print('iteracija %d  tikslumas %g' %(i,tikslumas));
       if precision < eps:
-        print('Nr. {0:2.0f}, SPRENDINYS x1 = {1:.5f}, x2 = {2:.5f}'.format(index + 1, x[0], x[1]))
+        print('Nr. {0:2.0f}, Sprendinio taško x = {1:.5f} ir y = {2:.5f}'.format(index + 1, x[0], x[1]))
         break
       elif i == iterCount:
-        print('Nr. {0:2.0f}, **** Tikslumas nepasiektas : '.format(index + 1), startX)
+        print('Nr. {0:2.0f} - Tikslumas nepasiektas intervale '.format(index + 1), startX)
         break
 
 
@@ -92,10 +92,12 @@ def df(x):
 
 def main():
   # Duomenų failo varianto numeris (galimi skaičiai: 1-10)
-  variant = 5
+  variant = 1
+
+  logicalProcesses = [16, 8, 4, 2, 1]
 
   # Programa veiks tiek kartų, kiek kompiuterio procesorius turi loginių procesorių
-  for count in range(1, multiprocessing.cpu_count() + 2):
+  for count in logicalProcesses:
     # Duomenu gavimas
     x = readFile("./{:d}_duomenys.json".format(variant))
 
